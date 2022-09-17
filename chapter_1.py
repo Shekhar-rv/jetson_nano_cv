@@ -25,7 +25,7 @@ def load_and_show_video(video_path = "resources/test_video.mp4", frameWidth = 64
     cap = cv2.VideoCapture(video_path)
     while True:
         success, img = cap.read()
-        img = cv2.resize(img, (frameWidth, frameHeight))q
+        img = cv2.resize(img, (frameWidth, frameHeight))
         # Show the video
         cv2.imshow('Result', img)
         # Break the loop if the 'q' key is pressed
