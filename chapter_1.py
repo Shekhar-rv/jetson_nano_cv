@@ -24,7 +24,8 @@ def load_and_show_video(video_path = "resources/test_video.mp4", frameWidth = 64
     # Point to the video file
     cap = cv2.VideoCapture(video_path)
     while True:
-        success, img = cap.read()
+        # success, img = cap.read()
+        img = cap.read()[1]
         img = cv2.resize(img, (frameWidth, frameHeight))
         # Show the video
         cv2.imshow('Result', img)
@@ -38,11 +39,12 @@ def load_and_show_webcam(frameWidth = 640, frameHeight = 480):
     1. frameWidth: The width of the video frame.
     2. frameHeight: The height of the video frame.
     '''
-    # Point to the webcam file - 
+    # Point to the webcam file - uncomment first lineif you have a usb webcam
+    # cap = cv2.VideoCapture(0)
     cap = cv2.VideoCapture("nvarguscamerasrc ! nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink", cv2.CAP_GSTREAMER)
 
     while True:
-        success, img = cap.read()
+        img = cap.read()[1]
         img = cv2.resize(img, (frameWidth, frameHeight))
         # Show the video
         cv2.imshow('Result', img)
@@ -52,6 +54,6 @@ def load_and_show_webcam(frameWidth = 640, frameHeight = 480):
 
 if __name__ == "__main__":
     # Uncomment the function you want to run
-    load_and_show_image()
+    # load_and_show_image()
     # load_and_show_video()
-    # load_and_show_webcam()
+    load_and_show_webcam()
