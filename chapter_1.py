@@ -56,4 +56,4 @@ if __name__ == "__main__":
     # Uncomment the function you want to run
     # load_and_show_image()
     # load_and_show_video()
-    load_and_show_webcam()
+     load_and_show_webcam()
